@@ -1,0 +1,124 @@
+<div>
+<div class="row">
+
+							<div class="col-xs-12 actions">
+							 <form class="form-group">
+								 	
+								 	<div class="col-xs-6 colHid1 colHid2">
+ 									<label for="date" > Search Date </label>
+ 									<input type="text" name="date" class="form-control" id= "date" placeholder="yyyy-mm-dd" ng-model="searchText.date">
+ 								</div>
+ 									<div class="col-xs-6 colHid1 colHid2">    <!-- to hide on lower screen size -->
+ 									
+ 									<label for="day" > Search Matchday </label>
+ 									<input type="text" name="day" class="form-control" id= "day" placeholder="Enter match day" ng-model="searchDay.name" data-toggle = "tooltip" data-placement="right">
+ 								</div>		
+ 								</form>
+ 								</div>
+
+ 									<div class="col-xs-12">
+							 		<form class="form-group">
+							 		<div class="col-xs-6">
+ 									<label for="team1" > Search Team1 </label>
+ 									<input type="text" name="team" class="form-control" id="team1" placeholder="Enter name" ng-model="searchText.team1.name">
+ 								</div>
+							 		
+ 									<div class="col-xs-6">
+ 									<label for="team2" > Search Team2 </label>
+ 									<input type="text" name="team" class="form-control" id="team2" placeholder="Enter name" ng-model="searchText.team2.name">
+ 								</div>		
+ 								</form>
+ 								</div>
+ 								
+ 									<div class="col-xs-12">
+							 		<form class="form-group">	
+ 									<div class="col-xs-6 colHid1 colHid2" >
+ 									<label for="filter-date" > Team1 score </label>
+ 									<input type="text" name="score" class="form-control" id= "filter-score1" placeholder="Enter score" ng-model="searchText.score1">
+ 								</div>
+ 								<div class="col-xs-6 colHid1 colHid2" >
+ 									<label for="filter-score1" > Team2 score </label>
+ 									<input type="text" name="score" class="form-control" id= "filter-score2" placeholder="Enter score" ng-model="searchText.score2">
+ 								</div>	
+ 							</form>	
+						</div>
+					</div>
+
+
+         
+
+   <table class="table table-responsive table-bordered">
+      <caption class="text-center">
+         <h3>{{ epl.name1 }}</h3>
+          
+      </caption>
+       <br/>
+      <thead class ="main-head">
+         <tr>
+            <th class="colHid1 colHid2">Day</th>
+            <th class="colHid1 colHid2">Date</th>
+            <th>Team1</th>
+             <th class="colHid1 colHid2">Score</th>
+            <th>Team2</th>
+             <th class="colHid1 colHid2">Score</th>
+            <th class="colHid2 ">Winner</th>
+            <th>Details</th>
+         </tr>
+      </thead>
+      <tbody ng-repeat ="item in epl.rounds1 | filter:searchDay">
+         <tr ng-repeat ="data in item.matches | filter:searchText">
+            <td class="colHid1 colHid2">{{ item.name }}</td>
+            <td class="colHid1 colHid2">{{ data.date  }}</td>
+            <td>{{ data.team1.name}}</td>
+             <td class="colHid1 colHid2">{{data.score1}}</td>
+            <td>{{ data.team2.name}}</td>
+             <td class="colHid1 colHid2">{{data.score2}}</td>
+            <td class="colHid2">
+               <div ng-if="data.score1 > data.score2">{{data.team1.name}} Won</div>
+               <div ng-if="data.score1 < data.score2">{{data.team2.name}} Won</div>
+               <div ng-if="data.score1 == data.score2">Match Drawn</div>
+            </td>
+             <td align="center"><img src="img/ball.png"/><a ng-href="#/match/{{ data.team1.code }}/{{ data.team2.code }}/{{ data.date }}">Details</a></td>
+         </tr>
+      </tbody>
+   </table>
+
+<br/>
+<section>
+   <table class="table table-responsive table-bordered">
+      <caption class="text-center">
+         <h3>{{ epl.name2 }}</h3>
+      </caption>
+      <thead class ="main-head">
+         <tr>
+            <th class="colHid1 colHid2">Day</th>
+            <th class="colHid1 colHid2">Date</th>
+            <th>Team1</th>
+             <th class="colHid1 colHid2">Score</th>
+            <th>Team2</th>
+             <th class="colHid1 colHid2">Score</th>
+            <th class="colHid2 ">Winner</th>
+            <th>Details</th>
+         </tr>
+      </thead>
+      <tbody ng-repeat ="item in epl.rounds2 | filter:searchDay">
+         <tr ng-repeat ="data in item.matches | filter:searchText">
+            <td class="colHid1 colHid2">{{ item.name }}</td>
+            <td class="colHid1 colHid2">{{ data.date  }}</td>
+            <td>{{ data.team1.name}}</td>
+             <td class="colHid1 colHid2">{{data.score1}}</td>
+            <td>{{ data.team2.name}}</td>
+             <td class="colHid1 colHid2">{{data.score2}}</td>
+            <td class="colHid2">
+               <div ng-if="data.score1 > data.score2">{{data.team1.name}} Won</div>
+               <div ng-if="data.score1 < data.score2">{{data.team2.name}} Won</div>
+               <div ng-if="data.score1 == data.score2">Match Drawn</div>
+            </td>
+            <td align="center"><img src="img/ball.png"/><a ng-href="#/match/{{ data.team1.code }}/{{ data.team2.code }}/{{ data.date }}">Details</a></td>
+         </tr>
+      </tbody>
+   </table>
+</section>
+</div>
+
+

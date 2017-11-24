@@ -1,0 +1,28 @@
+<div class="row">
+   <div class=" col-md-12 text-center">
+      <h3 class="colHid1 colHid2"> {{ mCtrl.matchDay }}</h3>
+      <h3> {{ mCtrl.date }}</h3>
+   </div>
+   <div class="col-xs-4 col-md-4">
+      <img ng-src = "logo/{{ mCtrl.code1}}.png" class="img-responsive" style="height:auto;width:440px">
+      <h4 class="text-center">{{ mCtrl.team1 }}</h4>
+      <h5 class="text-center"> Goals : {{ mCtrl.score1 }}</h5>
+   </div>
+   <div class="col-xs-4 col-md-4 text-center">
+      <br/><br/><br/>
+      <span class="colHid1 colHid2"><img src="logo/vs.png" style="height:50px;width:50px "></span>
+   </div>
+   <div class="col-xs-4 col-md-4">
+      <img ng-src = "logo/{{ mCtrl.code2}}.png" class="img-responsive" style="height:auto;width:440px">
+      <h4 class="text-center">{{ mCtrl.team2 }}</h4>
+      <h5 class="text-center">Goals : {{ mCtrl.score2 }}</h5>
+   </div>
+</div>
+<div class="row">
+   <div class="col-xs-12">
+      <h2 class="text-center">{{ mCtrl.winner }}</h2>
+   </div>
+   <div class="col-xs-12 text-center" style="margin-top: 15px;">
+      <button type="button" class="button" ng-click="mCtrl.navigateBack()">Back to table</button>
+   </div>
+</div>

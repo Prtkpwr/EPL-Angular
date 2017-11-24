@@ -1,0 +1,24 @@
+<img ng-src = "logo/{{ team.code1}}.png" class="img-responsive image" style="margin: auto">
+<div class="row">
+   <div style="text-align: center" class="col-md-6 col-sm-12 mm">
+      <h1>Season 2015-16</h1>
+      Team Name = {{team.name2 || team.name1}}<br/>
+      Total Matches Played = {{team.matches1}}<br/>
+      Total Matches Won = {{team.wins1}}<br/>
+      Total Matches Lost = {{team.loss1}}<br/>
+      Total Matches Drawn = {{team.draw1}}<br/>
+      Goals Scored = {{team.scorea}}
+   </div>
+   <div style="text-align: center" class="col-md-6 col-sm-12 mm">
+      <h1> Season 2016-17</h1>
+      Team Name = {{team.name1 || team.name2}}<br/>
+      Total Matches Played = {{team.matches}}<br/>
+      Total Matches Won = {{team.wins}}<br/>
+      Total Matches Lost = {{team.loss}}<br/>
+      Total Matches Drawn = {{team.draw}}<br/>
+      Goals Scored = {{team.score}}
+   </div>
+</div>
+<div class="col-xs-12 text-center" style="margin-top: 15px;">
+   <button type="button" class="button" ng-click="team.Back()">Back to Teams</button>
+</div>
