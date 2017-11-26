@@ -26,6 +26,7 @@ myApp.config(["$routeProvider", function ($routeProvider) {
 
 		});
 }]);
+//for "%2F" to "/"
 myApp.config(['$locationProvider', function ($locationProvider) {
 	$locationProvider.hashPrefix('');
 }]);
